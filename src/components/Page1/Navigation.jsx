@@ -51,12 +51,12 @@ const Navigation = () => {
             transition={{ duration: 0.5, delay: 1 + index * 0.4 }}
             
           >
-            <Link 
-              to={link.path}
+            <a 
+              href="#"
               className="text-white hover:text-gray-400 transition duration-300 ease-in-out"
             >
               {link.title}
-            </Link>
+            </a>
           </motion.li>
         ))}
       </ul>

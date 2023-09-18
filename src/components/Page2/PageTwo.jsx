@@ -1,9 +1,10 @@
 import React from 'react'
+import StaggerTemplate from './Section2/StaggerTemplate';
 
 const PageTwo = () => {
   return (
     <div>
-      <h1>hello</h1>
+      <StaggerTemplate />
     </div>
   )
 }
