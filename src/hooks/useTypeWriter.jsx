@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useTypewriter = (initialText, typingSpeed = 100, inView = false ) => {
+const useTypewriter = (initialText, typingSpeed = 100, inView = false , delay = 1000 ) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -12,7 +12,7 @@ const useTypewriter = (initialText, typingSpeed = 100, inView = false ) => {
     if(inView && !startAnimation) {
       delayTimer = setTimeout(() => {
         setStartAnimation(true);
-      }, 2500);
+      }, delay);
       return;
     }
 

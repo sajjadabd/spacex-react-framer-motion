@@ -11,7 +11,7 @@ const SectionOne = () => {
   const controls = useAnimationControls();
 
   const text = 'taking humans to space';
-  const displayText = useTypewriter(text, 100, inView);
+  const displayText = useTypewriter(text, 100, inView , 2500);
 
 
   useEffect( () => {
@@ -39,7 +39,7 @@ const SectionOne = () => {
           }}
           initial="hidden"
           animate={controls}
-          transition={{ duration: 0.5, delay: 4.5 }}
+          transition={{ duration: 0.5, delay: 5 }}
           className="pr-24 inline-block">
           In 2020, SpaceX returned America's ability to fly NASA 
           astronauts to and from the International Space Station 

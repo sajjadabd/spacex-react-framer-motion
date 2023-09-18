@@ -18,3 +18,35 @@ html::-webkit-scrollbar {
 body::-webkit-scrollbar {
   display: none;
 }
+
+
+
+
+
+.logo {
+  height: 6em;
+  will-change: filter;
+  transition: filter 300ms;
+  transform-origin: center center;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
