@@ -1,11 +1,24 @@
-import React from 'react'
-import { motion } from "framer-motion"
+import { useRef , useEffect } from 'react'
+import { motion , useInView , useAnimationControls } from "framer-motion"
 import { useState } from 'react'
 import Navigation from './Navigation';
 
 const spacexCharacters = ["S", "P", "A", "C", "E", "X"];
 
 const Header = () => {
+
+  const ref = useRef(null);
+  const inView = useInView(ref , { once : true });
+
+  const controls = useAnimationControls();
+
+
+  useEffect( () => {
+    if(inView) {
+      controls.start("visible");
+    }
+  }, [inView]);
+
 
   const [charactersAnimation, setCharactersAnimation] = useState(
     spacexCharacters.map(() => ({
@@ -15,10 +28,12 @@ const Header = () => {
   );
 
   return (
-    <div class="flex justify-between px-10">
-      <div>
+    <div className="flex justify-between px-10">
+
+      <div className="flex">
         {spacexCharacters.map((char, index) => (
-          <motion.span
+          <motion.div
+            ref={ref}
             key={index}
             className="text-3xl font-bold font-spacex"
             variants={{
@@ -26,11 +41,11 @@ const Header = () => {
               visible: { opacity: 1, y: 0 },
             }}
             initial="hidden"
-            animate={charactersAnimation[index]}
-            transition={{ duration: 0.75, delay: Math.random() * 0.5 , once : true  }}
+            animate={controls}
+            transition={{ duration: 0.75, delay:  Math.random() * 0.8 , once : true  }}
           >
             {char}
-          </motion.span>
+          </motion.div>
         ))}
       </div>
 
