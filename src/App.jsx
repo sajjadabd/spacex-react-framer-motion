@@ -13,6 +13,7 @@ function App() {
   const scrollContainerRef = useRef(null);
 
   const pagetwo = useRef(null);
+  
 
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
@@ -58,10 +59,8 @@ function App() {
     className='box-border overflow-hidden'>
       <div 
       data-scroll-section
-
-      className="w-screen h-screen px-4 py-4 bg-gradient-to-b bg-black text-stone-300">
+      className="section w-screen h-screen px-4 py-4 bg-gradient-to-b bg-black text-stone-300">
         <div 
-        className='section'
         data-scroll data-scroll-speed="1">
           <PageOne id="pageone" />
         </div>
@@ -69,10 +68,8 @@ function App() {
       <div 
       ref={pagetwo}
       data-scroll-section
-
-      className="w-screen h-screen px-4 py-4 bg-gradient-to-b bg-black text-stone-300">
+      className="section w-screen h-screen px-4 py-4 bg-gradient-to-b bg-black text-stone-300">
         <div 
-        className='section'
         data-scroll data-scroll-speed="2">
           <PageTwo id="pagetwo" />
         </div>
