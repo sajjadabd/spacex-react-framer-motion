@@ -46,16 +46,20 @@ const SectionTwo = () => {
         <motion.div 
           className='logo'
           variants={{
-            hidden : { y : '100vh' , rotate : '360deg' , opacity : 0 },
-            visible : {  y : 0 , rotate : 0 , opacity : 1 } ,
+            hidden : { scale : 1 , y : '100vh' , rotate : '360deg' , opacity : 0 },
+            visible : { scale : 1.2 , y : 0 , rotate : 0 , opacity : 1 } ,
           }}
           initial="hidden"
           animate={controls}
           transition={{ 
             ease: [0.075, 0.82, 0.165, 1],
-            duration: 3, 
-            delay: 2 ,
+            duration: 2, 
+            delay: 1 ,
+            scale : {
+              duration : 7
+            },
             rotate: {
+              repeat : Infinity ,
               duration: 11 // custom duration for opacity property only
             }
           }}
