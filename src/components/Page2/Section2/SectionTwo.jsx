@@ -35,24 +35,30 @@ const SectionTwo = () => {
   
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen">
+    <div className="overflow-hidden relative flex items-center justify-center min-h-screen">
       
       <div >
         {/* Your SVG component */}
         <div 
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         
         >
         <motion.div 
           className='logo'
           variants={{
-            hidden : { y : '100vh' },
-            visible : {  y : 0 }
+            hidden : { y : '100vh' , rotate : '360deg' , opacity : 0 },
+            visible : {  y : 0 , rotate : 0 , opacity : 1 } ,
           }}
           initial="hidden"
           animate={controls}
-          transition={{ duration: 1, delay: 0 }}
-          
+          transition={{ 
+            ease: [0.075, 0.82, 0.165, 1],
+            duration: 3, 
+            delay: 2 ,
+            rotate: {
+              duration: 11 // custom duration for opacity property only
+            }
+          }}
         > 
           <img style={{height : '16em'}} src={reactSVG} alt="react" />
         </motion.div>
