@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css'
 import PageOne from './components/Page1/PageOne';
 import PageTwo from './components/Page2/PageTwo';
@@ -10,8 +10,8 @@ import { motion } from 'framer-motion';
 
 function App() {
 
-  const scrollContainerRef = useRef(null);
 
+  const scrollContainerRef = useRef(null);
   const pagetwo = useRef(null);
   
 

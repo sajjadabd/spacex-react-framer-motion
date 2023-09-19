@@ -28,7 +28,7 @@ const Header = () => {
   );
 
   return (
-    <div className="flex justify-between px-10">
+    <div className="flex justify-between px-10 py-4">
 
       <div className="flex">
         {spacexCharacters.map((char, index) => (

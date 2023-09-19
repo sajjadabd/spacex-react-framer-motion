@@ -1,4 +1,4 @@
-import { useRef , useEffect } from 'react'
+import { useState, useRef , useEffect } from 'react'
 import { motion , useInView , useAnimationControls } from "framer-motion";
 
 import {
@@ -6,12 +6,12 @@ import {
 } from "react-router-dom";
 
 const navLinks = [ 
-  { title : "HOME", path : "/"} , 
-  { title : "GALLERIES", path : "galleries"} , 
-  { title : "HISTORY", path : "history"} , 
-  { title : "STARSHIP", path : "starship"} , 
-  { title : "MISSION", path : "mission"} , 
-  { title : "ABOUT", path : "about"} , 
+  { title : "HOME", path : 0} , 
+  { title : "GALLERIES", path : 1} , 
+  { title : "HISTORY", path : 2} , 
+  { title : "STARSHIP", path : 3} , 
+  { title : "MISSION", path : 4} , 
+  { title : "ABOUT", path : 5} , 
 ];
 
 
@@ -22,13 +22,19 @@ const Navigation = () => {
   const inView = useInView(ref , { once : true });
 
   const controls = useAnimationControls();
-
+  const [sections , setSections] = useState();
 
   useEffect( () => {
     if(inView) {
       controls.start("visible");
     }
   }, [inView]);
+
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('.section');
+    setSections(sections)
+  }, []);
 
 
 
@@ -52,8 +58,8 @@ const Navigation = () => {
             
           >
             <a 
-              href="#"
-              className="text-white hover:text-gray-400 transition duration-300 ease-in-out"
+              onClick={() => sections[link.path].scrollIntoView({ behavior: 'smooth' })}
+              className="text-white hover:text-gray-400 cursor-pointer transition duration-300 ease-in-out"
             >
               {link.title}
             </a>
